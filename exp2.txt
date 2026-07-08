@@ -39,9 +39,34 @@ rename column city to cities;
 
 drop column cities;
 
+
+  alter table students add email varchar(50);
+ alter table students modify city varchar(30); aisa hota hai
+
 truncate table tablename
+
+
+mysql> truncate table student;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select * from student;
+Empty set (0.00 sec)
+
+
+
+
 drop table tablecname
+
+mysql> drop table student;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc student;
+ERROR 1146 (42S02): Table 'sana.student' doesn't exist
+mysql>
+
 rename table oldname to newname
+mysql> rename table student to students;
+Query OK, 0 rows affected (0.05 sec)
 
 
 ye tha ddl
