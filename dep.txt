@@ -1,0 +1,323 @@
+department table
+
+dep_id ,   primary key
+dep name ,  not null
+dep location, default
+
+
+mysql> use sana;
+Database changed
+mysql> show tables;
+Empty set (0.02 sec)
+
+mysql> create table department(id INT primary key , name varchar(50) not null, location varchar(50) default "Raisoni");
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_sana |
++----------------+
+| department     |
++----------------+
+1 row in set (0.01 sec)
+
+mysql> desc department;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int         | NO   | PRI | NULL    |       |
+| name     | varchar(50) | NO   |     | NULL    |       |
+| location | varchar(50) | YES  |     | Raisoni |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+Microsoft Windows [Version 10.0.26100.7171]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Sana>mysql -u root -p
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use sana;
+Database changed
+mysql> desc tables;
+ERROR 1146 (42S02): Table 'sana.tables' doesn't exist
+mysql> desc students;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| roll  | int         | NO   | PRI | NULL    |       |
+| name  | varchar(50) | YES  |     | NULL    |       |
+| city  | varchar(30) | YES  |     | NULL    |       |
+| email | varchar(50) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> rename table students to student;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> alter table student drop column email;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| roll  | int         | NO   | PRI | NULL    |       |
+| name  | varchar(50) | YES  |     | NULL    |       |
+| city  | varchar(30) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table student modify city varchar(50);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| roll  | int         | NO   | PRI | NULL    |       |
+| name  | varchar(50) | YES  |     | NULL    |       |
+| city  | varchar(50) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> rename table student to students;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> alter table students add email varchar(50);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc students;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| roll  | int         | NO   | PRI | NULL    |       |
+| name  | varchar(50) | YES  |     | NULL    |       |
+| city  | varchar(50) | YES  |     | NULL    |       |
+| email | varchar(50) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table students modify city varchar(30);
+Query OK, 3 rows affected (0.06 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> desc students;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| roll  | int         | NO   | PRI | NULL    |       |
+| name  | varchar(50) | YES  |     | NULL    |       |
+| city  | varchar(30) | YES  |     | NULL    |       |
+| email | varchar(50) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table students rename column city to cities;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc students;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| roll   | int         | NO   | PRI | NULL    |       |
+| name   | varchar(50) | YES  |     | NULL    |       |
+| cities | varchar(30) | YES  |     | NULL    |       |
+| email  | varchar(50) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table students drop column email;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc students;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| roll   | int         | NO   | PRI | NULL    |       |
+| name   | varchar(50) | YES  |     | NULL    |       |
+| cities | varchar(30) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from students;
++------+------+--------+
+| roll | name | cities |
++------+------+--------+
+|   23 | John | Paris  |
+|   34 | Jane | NYC    |
+|   61 | Sana | Pune   |
++------+------+--------+
+3 rows in set (0.00 sec)
+
+mysql> alter table students rename column cities to city;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table students modify city varchar(50);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> rename table students to student;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from students;
+ERROR 1146 (42S02): Table 'sana.students' doesn't exist
+mysql> select * from student;
++------+------+-------+
+| roll | name | city  |
++------+------+-------+
+|   23 | John | Paris |
+|   34 | Jane | NYC   |
+|   61 | Sana | Pune  |
++------+------+-------+
+3 rows in set (0.00 sec)
+
+mysql> truncate table student;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select * from student;
+Empty set (0.00 sec)
+
+mysql> drop table student;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc student;
+ERROR 1146 (42S02): Table 'sana.student' doesn't exist
+mysql> use dana;
+ERROR 1049 (42000): Unknown database 'dana'
+mysql> use sana;
+Database changed
+mysql> show tables;
+Empty set (0.02 sec)
+
+mysql> create table department(id INT primary key , name varchar(50) not null, location varchar(50) default "Raisoni");
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_sana |
++----------------+
+| department     |
++----------------+
+1 row in set (0.01 sec)
+
+mysql> desc department;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int         | NO   | PRI | NULL    |       |
+| name     | varchar(50) | NO   |     | NULL    |       |
+| location | varchar(50) | YES  |     | Raisoni |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into department values(101, "IT", "E building 1st floor");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> desc department;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int         | NO   | PRI | NULL    |       |
+| name     | varchar(50) | NO   |     | NULL    |       |
+| location | varchar(50) | YES  |     | Raisoni |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from department;
++-----+------+----------------------+
+| id  | name | location             |
++-----+------+----------------------+
+| 101 | IT   | E building 1st floor |
++-----+------+----------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into department values(102, "Cyber");
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into department values(102, "Cyber", "");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from department;
++-----+-------+----------------------+
+| id  | name  | location             |
++-----+-------+----------------------+
+| 101 | IT    | E building 1st floor |
+| 102 | Cyber |                      |
++-----+-------+----------------------+
+2 rows in set (0.00 sec)
+
+mysql> delete from department where id=102;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from department;
++-----+------+----------------------+
+| id  | name | location             |
++-----+------+----------------------+
+| 101 | IT   | E building 1st floor |
++-----+------+----------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into department(id,name) values(102, "Cyber");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from department;
++-----+-------+----------------------+
+| id  | name  | location             |
++-----+-------+----------------------+
+| 101 | IT    | E building 1st floor |
+| 102 | Cyber | Raisoni              |
++-----+-------+----------------------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+mysql> insert into department values(103, "Data Science", "E building Ground Floor"), (104, "COE","E building 1st floor");
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from department;
++-----+--------------+-------------------------+
+| id  | name         | location                |
++-----+--------------+-------------------------+
+| 101 | IT           | E building 1st floor    |
+| 102 | Cyber        | Raisoni                 |
+| 103 | Data Science | E building Ground Floor |
+| 104 | COE          | E building 1st floor    |
++-----+--------------+-------------------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into department(id, name) values (105, "Mechanical"),(106, "ELectrical");
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from department;
++-----+--------------+-------------------------+
+| id  | name         | location                |
++-----+--------------+-------------------------+
+| 101 | IT           | E building 1st floor    |
+| 102 | Cyber        | Raisoni                 |
+| 103 | Data Science | E building Ground Floor |
+| 104 | COE          | E building 1st floor    |
+| 105 | Mechanical   | Raisoni                 |
+| 106 | ELectrical   | Raisoni                 |
++-----+--------------+-------------------------+
+6 rows in set (0.00 sec)
+
+mysql>
