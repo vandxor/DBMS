@@ -1,0 +1,79 @@
+ddl - data definition language
+
+create - create new table
+alter - make changes in it
+truncate - delete all data all together, only clear all data
+drop - data and structure dono ko delete karwana hai, complete table or databse
+rename - change table/database ka naam
+
+
+mysql --version
+mysql -u root -p
+Enter password:
+
+show databases;
+create database database-name;
+show database;
+
+use databse-name;
+create table table-name (roll INT, name varchar(50), city varchar(30));
+
+o/p -> Query OK
+
+
+alter table tablename add email varchar(50): when new stuff is added
+
+alter table tablename modify city varchar(50): when we change stuff
+
+alter table tablename drop column columnname : when deleting a column, cant directly drop
+
+ALTER COMMANDS:
+
+alter table tablename
+
+add email(50);
+
+modify city varchar(50);
+
+rename column city to cities;
+
+drop column cities;
+
+truncate table tablename
+drop table tablecname
+rename table oldname to newname
+
+
+ye tha ddl
+
+
+
+KEYS;
+
+primary key:  not null, uniQue, default, check
+not NULL Command
+default: agar value nhi bhari toh automatic value aa jaegi default"maharashtra"
+
+check -> are u older than 18 or smth, its used to check stuff
+
+
+
+forgein key : 2 tables ke bichme relationship
+
+2 tables, favulty and deparetment, em have uniue ids.
+
+dusre table ki primary key 2nd table ki forgien key banti hai.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
