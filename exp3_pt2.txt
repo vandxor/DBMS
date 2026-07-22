@@ -1,0 +1,11 @@
+joins
+
+inner join - intersection
+left join : A - B
+right join : B-A
+outer join : union
+cross join : cartesian product
+self join : ig self operations
+
+
+we do ts later cuz now we do tae stuff se
